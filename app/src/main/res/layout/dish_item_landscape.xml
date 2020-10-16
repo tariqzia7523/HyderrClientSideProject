@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_130sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_marginBottom="@dimen/_5sdp"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_10sdp"
+    app:cardCornerRadius="@dimen/_8sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_gravity="center"
+            android:id="@+id/profile_image"
+            android:src="@drawable/img"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/_10sdp"/>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_toRightOf="@+id/profile_image"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/black"
+            android:text="12"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/discription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_toRightOf="@+id/profile_image"
+            android:layout_above="@id/menus"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="12"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            android:ellipsize="end"/>
+        <Button
+            android:id="@+id/menus"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_bg"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:text="Menus"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
