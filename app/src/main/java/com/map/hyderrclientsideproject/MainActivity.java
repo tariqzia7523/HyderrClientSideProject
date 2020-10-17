@@ -1,6 +1,9 @@
 package com.map.hyderrclientsideproject;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -38,6 +41,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,9 +49,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     FirebaseUser firebaseUser;
     RecyclerView recyclerView;
     DrawerLayout drawer;
-
     ImageView mainImage;
-
     ImageView profileImage;
     DatabaseReference myRefUser;
     FirebaseUser currentUser;
@@ -56,6 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView userName;
     NavigationView navigationView;
     CollapsingToolbarLayout toolBarLayout;
+    String profileImageString,mainImageString,ordersImageString,cartImageString;
+    UserModel userModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,13 +67,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         myRef = FirebaseDatabase.getInstance().getReference("Menus");
         myRefUser = FirebaseDatabase.getInstance().getReference("Users").child("Clients");
-        myRefMainImage = FirebaseDatabase.getInstance().getReference("HomeScreen").child("imageUrl");
+        myRefMainImage = FirebaseDatabase.getInstance().getReference("HomeScreen");
         mainImage=findViewById(R.id.main_image);
         drawer = findViewById(R.id.drawer_layout);
         progressDialog=new ProgressDialog(MainActivity.this);
         progressDialog.setMessage("Please Wait");
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Home Fragment");
+
         setSupportActionBar(toolbar);
         toolBarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());
@@ -78,11 +82,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         myRefMainImage.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 try{
-                    Glide.with(MainActivity.this).load(snapshot.getValue(String.class))
+
+                    mainImageString=snapshot.child("imageUrl").getValue(String.class);
+                    profileImageString=snapshot.child("profilingImage").getValue(String.class);
+                    cartImageString=snapshot.child("myCartImage").getValue(String.class);
+                    ordersImageString=snapshot.child("foodOrders").getValue(String.class);
+                    Glide.with(MainActivity.this).load(mainImageString)
                             .centerCrop()
                             .into(mainImage);
-                    toolbar.setTitle("Home ");
+                    toolbar.setTitle("Restaurants");
+                    toolBarLayout.setTitleEnabled(true);
                 }catch (Exception c){
                     c.printStackTrace();
                 }
@@ -99,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 progressDialog.dismiss();
                 try{
-                    UserModel userModel=snapshot.getValue(UserModel.class);
+                    userModel=snapshot.getValue(UserModel.class);
                     userModel.setId(snapshot.getKey());
                     userName.setText(userModel.getName());
                     Glide.with(MainActivity.this).load(userModel.getImageUrl())
@@ -159,11 +170,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void setupProfileFragment(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        HomeFragment newCustomFragment = new HomeFragment();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data",userModel);
+        bundle.putString("email",firebaseUser.getEmail());
+        ProfileFragment newCustomFragment = new ProfileFragment();
+
+        newCustomFragment.setArguments(bundle);
         transaction.replace(R.id.container, newCustomFragment );
         transaction.addToBackStack(null);
         transaction.commit();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==100 && resultCode==RESULT_OK){
+           ProfileFragment.instance.updateImage(data.getData());
+        }
     }
 
     @Override
@@ -184,13 +208,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView.setCheckedItem(item.getItemId());
         if(item.getItemId()==R.id.nav_home){
-
+            Glide.with(MainActivity.this).load(mainImageString)
+                    .centerCrop()
+                    .into(mainImage);
+            setupHomeFragment();
         }else if(item.getItemId()==R.id.nav_cart){
-
+            Glide.with(MainActivity.this).load(cartImageString)
+                    .centerCrop()
+                    .into(mainImage);
         }else if(item.getItemId()==R.id.nav_my_orders){
-
+            Glide.with(MainActivity.this).load(ordersImageString)
+                    .centerCrop()
+                    .into(mainImage);
         }else if(item.getItemId()==R.id.nav_my_profile){
-
+            setupProfileFragment();
+            Glide.with(MainActivity.this).load(profileImageString)
+                    .centerCrop()
+                    .into(mainImage);
         }
 
         return false;

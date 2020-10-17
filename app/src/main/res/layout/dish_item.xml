@@ -42,6 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
             android:layout_below="@+id/image_layoput"
+            android:layout_above="@id/add_to_cart"
             android:textColor="@color/colorPrimary"
             android:text="adasd"
             android:textSize="@dimen/_12sdp"
@@ -49,6 +50,35 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_toLeftOf="@+id/price"/>
+        <Button
+            android:id="@+id/add_to_cart"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/button_bg"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:text="Add to cart"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+        <Button
+            android:id="@+id/delatis"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:background="@drawable/button_bg"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/white"
+            android:text="Add to cart"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_10sdp"/>
     </RelativeLayout>
 
 

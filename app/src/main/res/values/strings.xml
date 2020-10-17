@@ -134,4 +134,6 @@
     <string name="mycart">My Cart</string>
     <string name="profile">Profile</string>
     <string name="my_order">My Orders</string>
+    <string name="update_your_profile">Update your profile</string>
+    <string name="update">Update</string>
 </resources>
