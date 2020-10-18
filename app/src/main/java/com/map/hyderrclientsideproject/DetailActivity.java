@@ -1,5 +1,6 @@
 package com.map.hyderrclientsideproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.bumptech.glide.Glide;
@@ -15,17 +16,24 @@ import com.google.firebase.database.ValueEventListener;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class DetailActivity extends AppCompatActivity {
 
     UserModel userModel;
-    DatabaseReference myRefDish,myRefCart;
+
     ImageView mainImage;
     TextView resturentName;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +46,6 @@ public class DetailActivity extends AppCompatActivity {
         mainImage=findViewById(R.id.main_image);
         resturentName=findViewById(R.id.user_name);
 
-        myRefDish= FirebaseDatabase.getInstance().getReference("Menus");
         try{
             userModel=(UserModel)getIntent().getExtras().get("data");
             Glide.with(DetailActivity.this).load(userModel.getImageUrl())
@@ -49,21 +56,7 @@ public class DetailActivity extends AppCompatActivity {
             toolBarLayout.setTitle(userModel.getName());
             toolBarLayout.setTitleEnabled(true);
             resturentName.setText(userModel.getName());
-            myRefDish.child(userModel.getId()).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    try{
 
-                    }catch (Exception c){
-                        c.printStackTrace();
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
 
 
         }catch (Exception c){
@@ -76,6 +69,27 @@ public class DetailActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        setupDishFragment();
+    }
+
+    public void setupDishFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        DishesFragment newCustomFragment = new DishesFragment();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data",userModel);
+        newCustomFragment.setArguments(bundle);
+        transaction.replace(R.id.container, newCustomFragment );
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+    }
+
+
+    @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        startActivity(new Intent(DetailActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK));
 
     }
 }

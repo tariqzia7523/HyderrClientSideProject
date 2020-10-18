@@ -136,4 +136,6 @@
     <string name="my_order">My Orders</string>
     <string name="update_your_profile">Update your profile</string>
     <string name="update">Update</string>
+    <string name="provide_your_card_details">Provide your card details</string>
+    <string name="enter_phone_number">Enter Phone Number</string>
 </resources>

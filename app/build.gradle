@@ -7,14 +7,23 @@ android {
 
     defaultConfig {
         applicationId "com.map.hyderrclientsideproject"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -46,5 +55,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-location:17.1.0'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.0-alpha06'
-
+    implementation 'com.stripe:stripe-java:19.5.0'
+    implementation 'com.stripe:stripe-android:14.4.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
 }

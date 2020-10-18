@@ -11,6 +11,16 @@ public class DishModel implements Serializable {
     String category;
     String resturentID;
 
+    int quantity;
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public String getResturentID() {
         return resturentID;
     }
