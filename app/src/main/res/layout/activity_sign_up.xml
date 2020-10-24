@@ -103,6 +103,26 @@
                 app:cardElevation="@dimen/_10sdp"
                 android:outlineSpotShadowColor="@color/colorPrimaryDark">
                 <EditText
+                    android:id="@+id/contact_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@null"
+                    android:hint="@string/Enter_address"
+                    android:paddingLeft="@dimen/_10sdp"
+                    android:paddingRight="@dimen/_10sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:textColor="@color/colorPrimary"
+                    android:inputType="textPersonName" />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_margin="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="@dimen/_10sdp"
+                android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

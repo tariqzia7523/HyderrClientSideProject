@@ -50,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     FirebaseUser currentUser;
-    EditText edname,edemail,edpassword,edconfirmPassword,edaddress;
+    EditText edname,edemail,edContactNumber,edpassword,edconfirmPassword,edaddress;
     ImageView imageView;
     Uri imageUri;
     String TAG,fcmToken,imageUrl;
@@ -72,6 +72,7 @@ public class SignUpActivity extends AppCompatActivity {
         edname=findViewById(R.id.name);
         edemail=findViewById(R.id.email);
         edaddress=findViewById(R.id.address);
+        edContactNumber=findViewById(R.id.contact_number);
         edpassword=findViewById(R.id.password);
         edconfirmPassword=findViewById(R.id.confrim_password);
         imageView=findViewById(R.id.profile_image);
@@ -97,10 +98,11 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final String name=edname.getText().toString();
                 final String email=edemail.getText().toString();
+                final String contact=edContactNumber.getText().toString();
                 String pass=edpassword.getText().toString();
                 String conPass=edconfirmPassword.getText().toString();
                 if(pass.equals(conPass)){
-                    if(!name.isEmpty() || !email.isEmpty()){
+                    if(!name.isEmpty() || !email.isEmpty() || !contact.isEmpty()){
                         if(imageUri==null){
                             Toast.makeText(getApplicationContext(),"Please select an image too.",Toast.LENGTH_LONG).show();
                             return;
@@ -131,6 +133,7 @@ public class SignUpActivity extends AppCompatActivity {
                                                             resturentUserModel.setImageUrl(imageUrl);
                                                             resturentUserModel.setName(edname.getText().toString());
                                                             resturentUserModel.setType("User");
+                                                            resturentUserModel.setContactNumber(edContactNumber.getText().toString());
                                                             if(curLocation!=null){
                                                                 resturentUserModel.setLat(curLocation.getLatitude());
                                                                 resturentUserModel.setLng(curLocation.getLongitude());

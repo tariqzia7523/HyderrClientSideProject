@@ -16,6 +16,26 @@ public class OrderModel implements Serializable {
     String status;
     String phoneNumber;
 
+    boolean selected;
+
+    String diliverymanid;
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+    public String getDiliverymanid() {
+        return diliverymanid;
+    }
+
+    public void setDiliverymanid(String diliverymanid) {
+        this.diliverymanid = diliverymanid;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }

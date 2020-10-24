@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView userName;
     NavigationView navigationView;
     CollapsingToolbarLayout toolBarLayout;
-    String profileImageString,mainImageString,ordersImageString,cartImageString;
+    String profileImageString,mainImageString,ordersImageString,cartImageString,historyImageString;
     UserModel userModel;
     private Stripe stripe;
     CardMultilineWidget cardInputWidget;
@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     profileImageString=snapshot.child("profilingImage").getValue(String.class);
                     cartImageString=snapshot.child("myCartImage").getValue(String.class);
                     ordersImageString=snapshot.child("foodOrders").getValue(String.class);
+                    historyImageString=snapshot.child("historyImage").getValue(String.class);
                     Glide.with(MainActivity.this).load(mainImageString)
                             .centerCrop()
                             .into(mainImage);
@@ -227,6 +228,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         transaction.commit();
 
     }
+    public void setupOrderFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        OrderFragment newCustomFragment = new OrderFragment();
+        transaction.replace(R.id.container, newCustomFragment );
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+    }
     public void setupProfileFragment(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -234,6 +244,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bundle.putSerializable("data",userModel);
         bundle.putString("email",firebaseUser.getEmail());
         ProfileFragment newCustomFragment = new ProfileFragment();
+        newCustomFragment.setArguments(bundle);
+        transaction.replace(R.id.container, newCustomFragment );
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+    }
+    public void setupHistoryFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data",userModel);
+        bundle.putString("email",firebaseUser.getEmail());
+        HistoryFragment newCustomFragment = new HistoryFragment();
         newCustomFragment.setArguments(bundle);
         transaction.replace(R.id.container, newCustomFragment );
         transaction.addToBackStack(null);
@@ -283,12 +306,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Glide.with(MainActivity.this).load(ordersImageString)
                     .centerCrop()
                     .into(mainImage);
+            setupOrderFragment();
         }else if(item.getItemId()==R.id.nav_my_profile){
             setupProfileFragment();
             Glide.with(MainActivity.this).load(profileImageString)
                     .centerCrop()
                     .into(mainImage);
+        }else if(item.getItemId()==R.id.nav_histroy){
+            setupHistoryFragment();
+            Glide.with(MainActivity.this).load(historyImageString)
+                    .centerCrop()
+                    .into(mainImage);
         }
+
 
         return false;
     }

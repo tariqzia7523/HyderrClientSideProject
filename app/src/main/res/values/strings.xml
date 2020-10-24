@@ -138,4 +138,8 @@
     <string name="update">Update</string>
     <string name="provide_your_card_details">Provide your card details</string>
     <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="mark_complete">Mark Complete</string>
+    <string name="view_current_location">Dilivery on the way</string>
+    <string name="history">History</string>
+    <string name="resturent_name">Resturent name</string>
 </resources>

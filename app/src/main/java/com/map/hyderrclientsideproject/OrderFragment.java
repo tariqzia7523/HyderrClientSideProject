@@ -34,7 +34,7 @@ public class OrderFragment extends Fragment {
     ProgressDialog progressDialog;
     FirebaseUser firebaseUser;
     public static OrderFragment instance;
-    UserModel userModel;
+//    UserModel userModel;
     String TAG;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,7 +46,6 @@ public class OrderFragment extends Fragment {
         list=new ArrayList<>();
         TAG="***OrderFrag";
 
-        userModel =(UserModel) getArguments().getSerializable("data");
         totalText=v.findViewById(R.id.total_amount);
         progressDialog=new ProgressDialog(getActivity());
         progressDialog.setMessage("Please wait");
@@ -68,8 +67,14 @@ public class OrderFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
              try{
                  for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+
                      OrderModel dishModel=dataSnapshot.getValue(OrderModel.class);
                      dishModel.setId(dataSnapshot.getKey());
+
+                     if(dataSnapshot.child("SelectedDeliveryMan").exists()){
+                         dishModel.setSelected(true);
+                         dishModel.setDiliverymanid(dataSnapshot.child("SelectedDeliveryMan").getValue(String.class));
+                     }
                      list.add(dishModel);
                      myAdapter.notifyDataSetChanged();
 

@@ -12,6 +12,16 @@ public class UserModel implements Serializable {
     double lng;
     String type;
 
+    String contactNumber;
+
+    public String getContactNumber() {
+        return contactNumber;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
     public UserModel() { }
 
     public String getId() {

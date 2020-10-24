@@ -28,6 +28,7 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ViewLiveLocationActivity"></activity>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SplashActivity">
@@ -37,6 +38,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBQ5g78ZKzk0gpiGfwom7iQXpW5MuhMyP0" />
     </application>
 
 </manifest>

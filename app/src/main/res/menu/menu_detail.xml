@@ -20,5 +20,9 @@
             android:id="@+id/nav_my_orders"
             android:icon="@drawable/ic_baseline_fastfood_24"
             android:title="@string/my_order" />
+        <item
+            android:id="@+id/nav_histroy"
+            android:icon="@drawable/ic_baseline_history_24"
+            android:title="@string/history" />
     </group>
 </menu>

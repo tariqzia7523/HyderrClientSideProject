@@ -50,7 +50,7 @@
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingRight="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:inputType="textPersonName" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -70,7 +70,7 @@
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingRight="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:inputType="textPersonName" />
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
@@ -90,7 +90,7 @@
                     android:paddingLeft="@dimen/_10sdp"
                     android:paddingRight="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/black"
                     android:inputType="textPersonName" />
             </androidx.cardview.widget.CardView>
             <RelativeLayout
