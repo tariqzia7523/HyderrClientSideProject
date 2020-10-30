@@ -9,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -31,7 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder  {
         TextView title,discriptioin;
         ImageView imageView;
-        Button menus;
+        LinearLayout menus;
         public MyViewHolder(View view) {
             super(view);
 //                sideImage=view.findViewById(R.id.side_image);
@@ -83,4 +85,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public long getItemId(int position) {
         return position;
     }
+
+    public void setFilter(ArrayList<UserModel> newList){
+        data=new ArrayList<>();
+        data.addAll(newList);
+        notifyDataSetChanged();
+    }
+
 }

@@ -16,6 +16,11 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -69,6 +74,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -85,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     TextView userName;
     NavigationView navigationView;
     CollapsingToolbarLayout toolBarLayout;
-    String profileImageString,mainImageString,ordersImageString,cartImageString,historyImageString;
+    String profileImageString,mainImageString,ordersImageString,cartImageString,historyImageString,favrtImages;
     UserModel userModel;
     private Stripe stripe;
     CardMultilineWidget cardInputWidget;
@@ -112,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         UserPhoneNumber="";
-
+        Places.initialize(getApplicationContext(), getString(R.string.api_key), Locale.US);
         secretKey="sk_test_51HV8ueHfXAtpG4cdWIO3a4QjRNBTp6OqDtkahvO8suR6ENwuRSQK3UOhqXNaYipqPYtVh3kYpus2VckWpcpjs4qe00R8oR6V2I";
         publishableKey="pk_test_51HV8ueHfXAtpG4cdzBWmS0YYqYfqh2gPeFAOFKthpvnCgRX4WzhZTQ1x14nQNtyhOSnPt72sx2UUqT1oeSKelaJz00xUlvMG1V";
 
@@ -137,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     cartImageString=snapshot.child("myCartImage").getValue(String.class);
                     ordersImageString=snapshot.child("foodOrders").getValue(String.class);
                     historyImageString=snapshot.child("historyImage").getValue(String.class);
+                    favrtImages=snapshot.child("favrtImages").getValue(String.class);
                     Glide.with(MainActivity.this).load(mainImageString)
                             .centerCrop()
                             .into(mainImage);
@@ -263,6 +270,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         transaction.commit();
 
     }
+    public void setupmyFavFragment(){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data",userModel);
+        bundle.putString("email",firebaseUser.getEmail());
+        FavrouitResturentsFragment newCustomFragment = new FavrouitResturentsFragment();
+        newCustomFragment.setArguments(bundle);
+        transaction.replace(R.id.container, newCustomFragment );
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+    }
 
 
     @Override
@@ -270,7 +290,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode==100 && resultCode==RESULT_OK){
            ProfileFragment.instance.updateImage(data.getData());
-        }else {
+        }else if (requestCode == 1) {
+            if (resultCode == RESULT_OK) {
+                Place place = Autocomplete.getPlaceFromIntent(data);
+                Log.i("location", "Place: " + place.getName() + ", " + place.getId());
+                CartFragment.instance.updateAddress(place);
+            } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
+                // TODO: Handle the error.
+                Status status = Autocomplete.getStatusFromIntent(data);
+                Log.i("location", status.getStatusMessage());
+            } else if (resultCode == RESULT_CANCELED) {
+                // The user canceled the operation.
+            }
+            return;
+        }
+        else {
             stripe.onPaymentResult(requestCode, data, new PaymentResultCallback(MainActivity.this));
         }
     }
@@ -315,6 +349,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if(item.getItemId()==R.id.nav_histroy){
             setupHistoryFragment();
             Glide.with(MainActivity.this).load(historyImageString)
+                    .centerCrop()
+                    .into(mainImage);
+        }else if(item.getItemId()==R.id.nav_favrouit){
+            setupmyFavFragment();
+            Glide.with(MainActivity.this).load(favrtImages)
                     .centerCrop()
                     .into(mainImage);
         }

@@ -37,9 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                app:cardCornerRadius="@dimen/_5sdp">
                 <EditText
                     android:id="@+id/name"
                     android:layout_width="match_parent"
@@ -57,9 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                app:cardCornerRadius="@dimen/_5sdp">
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
@@ -77,9 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                app:cardCornerRadius="@dimen/_5sdp">
                 <EditText
                     android:id="@+id/address"
                     android:layout_width="match_parent"

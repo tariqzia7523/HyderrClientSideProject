@@ -7,8 +7,7 @@
     android:layout_marginBottom="@dimen/_5sdp"
     android:layout_marginLeft="@dimen/_10sdp"
     android:layout_marginRight="@dimen/_10sdp"
-    app:cardCornerRadius="@dimen/_10sdp"
-    app:cardElevation="@dimen/_8sdp">
+    app:cardCornerRadius="@dimen/_5sdp">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -64,22 +63,38 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_toLeftOf="@+id/price"/>
 
-        <Button
+        <LinearLayout
             android:id="@+id/add_to_cart"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
             android:layout_below="@id/discription"
             android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="@dimen/_10sdp"
-            android:layout_alignParentRight="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:background="@drawable/button_bg"
+            android:background="@drawable/border_bg"
             android:textSize="@dimen/_10sdp"
             android:textColor="@color/white"
-            android:text="Add to cart"
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginRight="@dimen/_10sdp"/>
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:foreground="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_baseline_shopping_cart_24"
+                android:tint="@color/colorPrimary"
+                android:layout_margin="@dimen/_10sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12sdp"
+                android:text="@string/add_to_cart" />
+
+        </LinearLayout>
+
 
     </RelativeLayout>
 

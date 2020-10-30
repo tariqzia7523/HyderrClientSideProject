@@ -3,7 +3,8 @@
     <color name="colorPrimary">#c33332</color>
     <color name="colorPrimary_sel">#EF6B6A</color>
     <color name="colorPrimaryDark">#c33332</color>
-    <color name="colorAccent">#f47500</color>
+    <color name="colorAccent">#EEB31D</color>
+    <color name="red">#E10000</color>
 
     <color name="black">#000000</color>
     <color name="disable_black">#33000000</color>

@@ -77,7 +77,7 @@ public class ViewLiveLocationActivity extends AppCompatActivity implements OnMap
 //        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
-        myRefLocation = FirebaseDatabase.getInstance().getReference("Orders").child(firebaseUser.getUid()).child(orderModel.getId()).child("currentLocation");
+        myRefLocation = FirebaseDatabase.getInstance().getReference("Users").child("DeliveryMen").child(resturentUserModel.getId()).child("currentLocation");
         myRefLocation.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

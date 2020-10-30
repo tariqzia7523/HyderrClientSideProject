@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,7 @@ public class MyAdapterForCart extends RecyclerView.Adapter<MyAdapterForCart.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder  {
         TextView title,discriptioin,price,quantity;
         ImageView imageView,add,min;
-        Button remove;
+        LinearLayout remove;
         public MyViewHolder(View view) {
             super(view);
 //                sideImage=view.findViewById(R.id.side_image);

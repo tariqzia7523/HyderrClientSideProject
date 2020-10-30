@@ -7,191 +7,214 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@color/white"
+    android:weightSum="10"
     tools:context=".SignUpActivity">
-    <TextView
-        android:id="@+id/header_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ragistor_to_your_account"
-        android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/_12sdp"
-        android:layout_margin="@dimen/_10sdp"
-        android:textStyle="bold"/>
 
-    <ScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
-            <de.hdodenhof.circleimageview.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_gravity="center"
-                android:id="@+id/profile_image"
-                android:src="@drawable/img"
-                android:layout_marginTop="@dimen/_5sdp" />
+        android:layout_height="0dp"
+        android:layout_weight="2.5">
+        <ImageView
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:src="@drawable/logo"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 
-            <androidx.cardview.widget.CardView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7.5"
+        android:background="@drawable/top_rounded_layout_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
-                <EditText
-                    android:id="@+id/name"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:background="@null"
-                    android:hint="@string/Enter_name"
-                    android:paddingLeft="@dimen/_10sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="textPersonName" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
-                <EditText
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:background="@null"
-                    android:hint="@string/Enter_email"
-                    android:paddingLeft="@dimen/_10sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="textPersonName" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
-                <EditText
-                    android:id="@+id/address"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:background="@null"
-                    android:hint="@string/Enter_address"
-                    android:paddingLeft="@dimen/_10sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="textPersonName" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
-                <EditText
-                    android:id="@+id/contact_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:background="@null"
-                    android:hint="@string/Enter_address"
-                    android:paddingLeft="@dimen/_10sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="textPersonName" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:background="@null"
-                    android:hint="@string/enter_password"
-                    android:paddingLeft="@dimen/_10sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="textPassword" />
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_margin="@dimen/_10sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
-                <EditText
-                    android:id="@+id/confrim_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center_vertical"
-                    android:background="@null"
-                    android:hint="@string/confirm_password"
-                    android:paddingLeft="@dimen/_10sdp"
-                    android:paddingRight="@dimen/_10sdp"
-                    android:textSize="@dimen/_12sdp"
-                    android:textColor="@color/colorPrimary"
-                    android:inputType="textPassword" />
-            </androidx.cardview.widget.CardView>
-            <RelativeLayout
-                android:id="@+id/login_button"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_margin="@dimen/_10sdp"
-                android:background="@drawable/button_bg"
-                android:elevation="@dimen/_10sdp"
-                android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
                 <TextView
-                    android:id="@+id/login_text"
+                    android:id="@+id/header_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/login"
-                    android:layout_centerInParent="true"
-                    android:textSize="@dimen/_15sdp"
+                    android:text="@string/ragistor_to_your_account"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_margin="@dimen/_10sdp"
                     android:textStyle="bold"/>
-                <ProgressBar
-                    android:theme="@style/ProgressBarStyle"
-                    android:id="@+id/progress_bar"
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
-                    android:layout_centerInParent="true"
-                    android:visibility="gone"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_70sdp"
+                    android:layout_gravity="center"
+                    android:id="@+id/profile_image"
+                    android:src="@drawable/img"
+                    android:layout_marginTop="@dimen/_5sdp" />
 
-            </RelativeLayout>
-            <TextView
-                android:id="@+id/login_call"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/already_have_an_account"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_12sdp"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:textStyle="bold"/>
-        </LinearLayout>
-    </ScrollView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    >
+                    <EditText
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/Enter_name"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:inputType="textPersonName" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    
+                    android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                    <EditText
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/Enter_email"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:inputType="textEmailAddress" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    
+                    android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                    <EditText
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/Enter_address"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:inputType="textPersonName" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    
+                    android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                    <EditText
+                        android:id="@+id/contact_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/Enter_contact_number"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:inputType="phone" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    
+                    android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/enter_password"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:inputType="textPassword" />
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    app:cardCornerRadius="@dimen/_5sdp"
+                    
+                    android:outlineSpotShadowColor="@color/colorPrimaryDark">
+                    <EditText
+                        android:id="@+id/confrim_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/confirm_password"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        android:textColor="@color/black"
+                        android:inputType="textPassword" />
+                </androidx.cardview.widget.CardView>
+                <RelativeLayout
+                    android:id="@+id/login_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/border_bg_white">
+                    <TextView
+                        android:id="@+id/login_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/login"
+                        android:layout_centerInParent="true"
+                        android:textSize="@dimen/_15sdp"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"/>
+                    <ProgressBar
+                        android:theme="@style/ProgressBarStyle"
+                        android:id="@+id/progress_bar"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone"/>
+
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/login_call"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_35sdp"
+                    android:background="@drawable/border_bg_white"
+                    android:text="@string/already_have_an_account"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_12sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+   
+
+    
 
 </LinearLayout>

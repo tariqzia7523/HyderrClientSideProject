@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_100sdp"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginLeft="@dimen/_10sdp"
     android:layout_marginRight="@dimen/_10sdp"
@@ -16,61 +16,11 @@
         android:gravity="center">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="@dimen/_115sdp"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_12sdp"
-                android:text="Resturent Name    :"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_12sdp"
-                android:text="Resturent Name :"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/disable_black"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_5sdp"/>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="@dimen/_115sdp"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_12sdp"
-                android:text="Delivery man Name :"
-                android:textColor="@color/black"/>
-            <TextView
-                android:id="@+id/dilivery_man_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/_12sdp"
-                android:text="Resturent Name :"
-                android:textColor="@color/black"/>
-        </LinearLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:background="@color/disable_black"
-            android:layout_marginRight="@dimen/_20sdp"
-            android:layout_marginLeft="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginBottom="@dimen/_5sdp"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp">
             <TextView
                 android:layout_width="@dimen/_115sdp"
                 android:layout_height="wrap_content"
@@ -85,6 +35,70 @@
                 android:text=""
                 android:textColor="@color/black"/>
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/disable_black"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp">
+            <TextView
+                android:layout_width="@dimen/_115sdp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:text="Resturent Name    :"
+                android:textColor="@color/black"
+                />
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:text="Resturent Name :"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/disable_black"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_20sdp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            >
+            <TextView
+                android:layout_width="@dimen/_115sdp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:text="Delivery man Name :"
+                android:textColor="@color/black"/>
+            <TextView
+                android:id="@+id/dilivery_man_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12sdp"
+                android:text="Resturent Name :"
+                android:textColor="@color/black"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

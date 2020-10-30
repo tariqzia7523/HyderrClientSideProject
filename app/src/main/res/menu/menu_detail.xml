@@ -24,5 +24,9 @@
             android:id="@+id/nav_histroy"
             android:icon="@drawable/ic_baseline_history_24"
             android:title="@string/history" />
+        <item
+            android:id="@+id/nav_favrouit"
+            android:icon="@drawable/ic_baseline_favorite_24"
+            android:title="@string/favrouit" />
     </group>
 </menu>

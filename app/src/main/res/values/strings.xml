@@ -1,26 +1,29 @@
 <resources>
-    <string name="app_name">ClientSide Project</string>
+    <string name="app_name">Online Food Delivery</string>
     <string name="login_to_your_account">Login to your account</string>
     <string name="Enter_email">Enter Email</string>
     <string name="enter_password">Enter Password</string>
     <string name="login">SIGN IN</string>
     <string name="dont_have_account">Click to register new account</string>
     <string name="ragistor_to_your_account">Register to your account</string>
-    <string name="Enter_name">Enter name</string>
+    <string name="Enter_name">Enter Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="already_have_an_account">Already have an account. Click to Login</string>
     <string name="add_post">Add Post</string>
     <string name="Enter_title">Enter Title</string>
     <string name="Enter_discription">Enter Description</string>
     <string name="add_image">Add Image (Optional)</string>
-    <string name="Enter_address">Enter address</string>
+    <string name="Enter_address">Enter Address</string>
     <string name="Enter_resturent_name">Enter restaurant name</string>
     <string name="add">Add Menu</string>
     <string name="add_dishes_to_your_menu">Add disshes to your menus</string>
     <string name="Enter_dish_title">Enter Dish Title</string>
     <string name="Enter_price">Enter Price</string>
     <string name="add_dishes">Add dishes</string>
-
+    <string name="api_key">AIzaSyBQ5g78ZKzk0gpiGfwom7iQXpW5MuhMyP0</string>
+    <string name="facebook_app_id">700123764192396</string>
+    <string name="fb_login_protocol_scheme">fb700123764192396</string>
+    <string name="app_secrte">07dd51ac26420c8b5d3c54604fd1fa99</string>
 
     <string-array name="category">
         <item>All</item>
@@ -142,4 +145,15 @@
     <string name="view_current_location">Dilivery on the way</string>
     <string name="history">History</string>
     <string name="resturent_name">Resturent name</string>
+    <string name="enter_drop_off_location">Enter Drop off location</string>
+    <string name="tap_to_enter_address">Enter address</string>
+    <string name="use_current_location">Use Current Location</string>
+    <string name="new_order">New Order</string>
+    <string name="you_have_a_new_order">You have a new order</string>
+    <string name="login_with_socail_account">"Login with Social Accounts "</string>
+    <string name="Enter_contact_number">Enter Contact Number</string>
+    <string name="menus">View Menus</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="remove">Remove</string>
+    <string name="favrouit">Favorite</string>
 </resources>

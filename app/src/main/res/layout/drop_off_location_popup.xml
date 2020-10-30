@@ -10,13 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:padding="@dimen/_10sdp">
         <TextView
             android:id="@+id/header_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/provide_your_card_details"
-            android:textColor="@color/colorPrimary"
+            android:text="@string/enter_drop_off_location"
+            android:textColor="@color/black"
             android:textSize="@dimen/_12sdp"
             android:layout_margin="@dimen/_10sdp"
             android:textStyle="bold"/>
@@ -26,54 +27,24 @@
             android:layout_margin="@dimen/_10sdp"
             app:cardCornerRadius="@dimen/_5sdp">
             <EditText
-                android:id="@+id/person_name"
+                android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:background="@null"
-                android:hint="@string/Enter_name"
+                android:hint="@string/tap_to_enter_address"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingRight="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/black"
                 android:inputType="textPersonName" />
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/phone_number_layput"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_margin="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_5sdp">
-            <EditText
-                android:id="@+id/phone_number"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:background="@null"
-                android:hint="@string/enter_phone_number"
-                android:paddingLeft="@dimen/_10sdp"
-                android:paddingRight="@dimen/_10sdp"
-                android:textSize="@dimen/_12sdp"
-                android:textColor="@color/colorPrimary"
-                android:inputType="phone" />
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:padding="@dimen/_10sdp"
-            app:cardCornerRadius="@dimen/_5sdp">
-            <com.stripe.android.view.CardMultilineWidget
-                android:id="@+id/cardInputWidget"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_10sdp"/>
-        </androidx.cardview.widget.CardView>
+
 
 
 
         <Button
-            android:id="@+id/payButton"
+            android:id="@+id/current_location"
             android:layout_height="@dimen/_40sdp"
             android:layout_width="match_parent"
             android:gravity="center"
@@ -81,10 +52,9 @@
             android:textColor="#FFFFFF"
             android:textSize="@dimen/_12sdp"
             android:background="@drawable/button_bg"
-            android:layout_below="@+id/cardInputWidget"
             android:layout_margin="@dimen/_10sdp"
             android:foreground="?attr/selectableItemBackground"
-            android:text="Pay"/>
+            android:text="@string/use_current_location"/>
     </LinearLayout>
 
 

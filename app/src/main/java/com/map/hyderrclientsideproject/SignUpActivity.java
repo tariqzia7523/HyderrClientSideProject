@@ -78,6 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
         imageView=findViewById(R.id.profile_image);
         progressBar=findViewById(R.id.progress_bar);
         signuptext=findViewById(R.id.login_text);
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,7 @@ public class MyAdapterFordishes extends RecyclerView.Adapter<MyAdapterFordishes.
     public class MyViewHolder extends RecyclerView.ViewHolder  {
         TextView title,price,discription;
         ImageView imageView;
-        Button delatis,cart;
+        LinearLayout cart;
         ProgressBar progressBar;
         public MyViewHolder(View view) {
             super(view);

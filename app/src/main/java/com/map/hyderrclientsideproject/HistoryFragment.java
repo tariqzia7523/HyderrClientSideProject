@@ -94,6 +94,7 @@ public class HistoryFragment extends Fragment {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             try{
+                                progressDialog.dismiss();
                                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                                     HistoryModel historyModel=dataSnapshot.getValue(HistoryModel.class);
                                     historyModel.setId(dataSnapshot.getKey());

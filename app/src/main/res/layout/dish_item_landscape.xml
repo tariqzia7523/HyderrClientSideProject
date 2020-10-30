@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_130sdp"
+    android:layout_height="@dimen/_120sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="@dimen/_5sdp"
     android:layout_marginBottom="@dimen/_5sdp"
@@ -14,55 +14,78 @@
         android:layout_height="match_parent">
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="@dimen/_60sdp"
-            android:layout_height="@dimen/_60sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
             android:layout_gravity="center"
             android:id="@+id/profile_image"
             android:src="@drawable/img"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_centerVertical="true"
-            android:layout_margin="@dimen/_10sdp"/>
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:layout_toRightOf="@+id/profile_image"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:textColor="@color/black"
-            android:text="12"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/discription"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_10sdp"/>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
             android:layout_toRightOf="@+id/profile_image"
-            android:layout_above="@id/menus"
-            android:layout_below="@+id/title"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:text="12"
-            android:textSize="@dimen/_12sdp"
-            android:textStyle="bold"
-            android:ellipsize="end"/>
-        <Button
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_above="@+id/menus">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textColor="@color/black"
+                android:text="12"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/discription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:text="asdadsadadadad"/>
+        </LinearLayout>
+
+
+        <LinearLayout
             android:id="@+id/menus"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/_30sdp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
             android:layout_alignParentBottom="true"
             android:paddingLeft="@dimen/_10sdp"
             android:paddingRight="@dimen/_10sdp"
-            android:layout_alignParentRight="true"
-            android:background="@drawable/button_bg"
+            android:background="@drawable/border_bg"
             android:textSize="@dimen/_10sdp"
             android:textColor="@color/white"
-            android:text="Menus"
-            android:layout_marginBottom="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginRight="@dimen/_10sdp"/>
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_20sdp"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:foreground="?attr/selectableItemBackground">
+            <ImageView
+                android:layout_width="@dimen/_15sdp"
+                android:layout_height="@dimen/_15sdp"
+                android:src="@drawable/ic_baseline_fastfood_24"
+                android:tint="@color/colorPrimary"
+                android:layout_margin="@dimen/_10sdp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12sdp"
+                android:text="@string/menus" />
+
+        </LinearLayout>
 
 
     </RelativeLayout>

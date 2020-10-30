@@ -6,15 +6,22 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Base64;
+import android.util.Log;
 import android.view.WindowManager;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -45,7 +52,7 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         }, 3000);
-
+        printHashKey(getApplicationContext());
 
     }
     public static boolean hasPermissions(Context context, String... permissions) {
@@ -76,6 +83,23 @@ public class SplashActivity extends AppCompatActivity {
         }else{
             startActivity(new Intent(SplashActivity.this,MainActivity.class));
             finish();
+        }
+    }
+
+
+    public static void printHashKey(Context pContext) {
+        try {
+            PackageInfo info = pContext.getPackageManager().getPackageInfo(pContext.getPackageName(), PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String hashKey = new String(Base64.encode(md.digest(), 0));
+                Log.i("***HASH", "printHashKey() Hash Key: " + hashKey);
+            }
+        } catch (NoSuchAlgorithmException e) {
+            Log.e("***HASH", "printHashKey()", e);
+        } catch (Exception e) {
+            Log.e("***HASH", "printHashKey()", e);
         }
     }
 }
