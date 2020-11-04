@@ -38,7 +38,7 @@
     <LinearLayout
         android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_80sdp"
+        android:layout_height="@dimen/_100sdp"
         android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/top_rounded_bg"
         android:layout_alignParentBottom="true"
@@ -65,6 +65,15 @@
             android:textSize="@dimen/_12sdp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/remaing_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profile_image"
+            android:layout_centerVertical="true"
+            android:text="Remaining time not avalible"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/quantum_grey" />
 
 
 

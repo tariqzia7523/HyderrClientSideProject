@@ -82,7 +82,7 @@ public class MyAdapterFordishes extends RecyclerView.Adapter<MyAdapterFordishes.
 
         holder.title.setText(data.get(position).getName());
         holder.discription.setText(data.get(position).getDescription());
-        holder.price.setText(data.get(position).getPrice());
+        holder.price.setText(data.get(position).getPrice()+"USD");
         Glide.with(activity).load(data.get(position).getImageUrl())
                 .centerCrop()
                 .listener(new RequestListener<Drawable>() {

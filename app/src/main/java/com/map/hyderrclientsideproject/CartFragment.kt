@@ -246,8 +246,11 @@ class CartFragment : Fragment() {
             myRefUser!!.child(list!!.get(0)!!.getResturentID()).addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     try {
+
                         val userModel = snapshot.getValue(UserModel::class.java)
                         sendNotification(userModel!!.getFcmToken(),getString(R.string.new_order),getString(R.string.you_have_a_new_order),"Android")
+                        totalText!!.text = "Total Price : 0"
+                        progressDialog!!.dismiss()
                     } catch (c: Exception) {
                         c.printStackTrace()
                     }

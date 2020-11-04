@@ -14,6 +14,17 @@ public class UserModel implements Serializable {
 
     String contactNumber;
 
+
+    double distance;
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
     public String getContactNumber() {
         return contactNumber;
     }

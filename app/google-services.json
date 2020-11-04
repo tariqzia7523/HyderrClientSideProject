@@ -21,12 +21,32 @@
             "package_name": "com.map.hyderrclientsideproject",
             "certificate_hash": "8487cacad509d2df869c665d82f82a2f1c2875b3"
           }
-        },
-        {
-          "client_id": "975332657414-of7qdg6q4csnk7jn5lelsdel0u0t4ts2.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbgef2cEHzcJnNSrbeqliTcF9EAzpBWok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975332657414-of7qdg6q4csnk7jn5lelsdel0u0t4ts2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975332657414:android:6d9b920ddd578a7b0ef687",
+        "android_client_info": {
+          "package_name": "com.map.hyderrclientsideproject.client"
+        }
+      },
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyCbgef2cEHzcJnNSrbeqliTcF9EAzpBWok"
@@ -58,10 +78,39 @@
             "package_name": "com.map.hyderrresturentsideproject",
             "certificate_hash": "8487cacad509d2df869c665d82f82a2f1c2875b3"
           }
-        },
+        }
+      ],
+      "api_key": [
         {
-          "client_id": "975332657414-of7qdg6q4csnk7jn5lelsdel0u0t4ts2.apps.googleusercontent.com",
-          "client_type": 3
+          "current_key": "AIzaSyCbgef2cEHzcJnNSrbeqliTcF9EAzpBWok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975332657414-of7qdg6q4csnk7jn5lelsdel0u0t4ts2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975332657414:android:9d0dc5c4741678fd0ef687",
+        "android_client_info": {
+          "package_name": "com.new.deliveryprojectnew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975332657414-st406gdprm32v8kmtvrgrd02hcgh8vl5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.new.deliveryprojectnew",
+            "certificate_hash": "8487cacad509d2df869c665d82f82a2f1c2875b3"
+          }
         }
       ],
       "api_key": [

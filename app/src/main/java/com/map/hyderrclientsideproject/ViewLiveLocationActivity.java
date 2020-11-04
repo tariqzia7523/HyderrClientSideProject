@@ -1,7 +1,9 @@
 package com.map.hyderrclientsideproject;
 
 
+import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,6 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DecimalFormat;
+
 public class ViewLiveLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -31,7 +35,7 @@ public class ViewLiveLocationActivity extends AppCompatActivity implements OnMap
     OrderModel orderModel;
     UserModel resturentUserModel;
     ImageView profile_image;
-    TextView textView;
+    TextView textView,remaingTime;
     FirebaseUser firebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class ViewLiveLocationActivity extends AppCompatActivity implements OnMap
         getSupportActionBar().hide();
         profile_image=findViewById(R.id.profile_image);
         textView=findViewById(R.id.name);
+        remaingTime=findViewById(R.id.remaing_time);
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +60,7 @@ public class ViewLiveLocationActivity extends AppCompatActivity implements OnMap
             Glide.with(ViewLiveLocationActivity.this).load(resturentUserModel.getImageUrl())
                     .into(profile_image);
             textView.setText(resturentUserModel.getName());
+
         }catch (Exception c){
             c.printStackTrace();
         }
@@ -88,6 +94,23 @@ public class ViewLiveLocationActivity extends AppCompatActivity implements OnMap
                     mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
 //                    mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 12.0f));
+                    try{
+                        Location location=new Location("Other");
+                        location.setLatitude(locationModel.getLat());
+                        location.setLongitude(locationModel.getLng());
+                        double meter = MainActivity.curlocation.distanceTo(location);
+                        double km= (meter/1000);
+                        double time =km*40;
+                        DecimalFormat precision = new DecimalFormat("0.00");
+// dblVariable is a number variable and not a String in this case
+                        remaingTime.setText(precision.format(time)+" min");
+                        Log.e("time ","disctance is "+km);
+
+                    }catch (Exception c){
+                        c.printStackTrace();
+                        remaingTime.setVisibility(View.GONE);
+                    }
+
                 }catch (Exception c){
                     c.printStackTrace();
                 }

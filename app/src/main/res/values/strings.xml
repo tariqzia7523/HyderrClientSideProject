@@ -156,4 +156,14 @@
     <string name="add_to_cart">Add To Cart</string>
     <string name="remove">Remove</string>
     <string name="favrouit">Favorite</string>
+
+
+
+<!--    <string name="client_id">39013914513-l15ejrjcqf4dftej80ac9sqo8bktj1hl.apps.googleusercontent.com</string>-->
+    <string name="client_id">39013914513-omacdb7hlg1np33af1p0gutgoodrt2gv.apps.googleusercontent.com</string>
+
+    <string name="firebase_web">975332657414-of7qdg6q4csnk7jn5lelsdel0u0t4ts2.apps.googleusercontent.com</string>
+    <string name="goole_api_key">AIzaSyAgVLL1WNj3NXwX5PvWsNpBb8-AYKeeorU</string>
+    <string name="your_clint_secrate">zGPu0dY578tTM5E8oU_pAyUB</string>
+    <string name="your_clint_id">39013914513-49kvg0gamcu0p0aaam47peosq6trimp5.apps.googleusercontent.com</string>
 </resources>

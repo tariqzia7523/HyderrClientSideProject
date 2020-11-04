@@ -1,6 +1,7 @@
 package com.map.hyderrclientsideproject;
 
 import android.app.ProgressDialog;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 
 public class HomeFragment extends Fragment {
@@ -31,6 +34,7 @@ public class HomeFragment extends Fragment {
     MyAdapter myAdapter;
     RecyclerView recyclerView;
     SearchView searchView;
+    public static HomeFragment instance;
 
 
     @Override
@@ -38,6 +42,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.home_fragment, container, false);
+        instance=this;
         myRef = FirebaseDatabase.getInstance().getReference("Users").child("Restaurants");
         progressDialog=new ProgressDialog(getActivity());
         progressDialog.setMessage("Please wait");
@@ -58,7 +63,39 @@ public class HomeFragment extends Fragment {
                     for(DataSnapshot dataSnapshot1 : snapshot.getChildren()){
                         UserModel dishModel=dataSnapshot1.getValue(UserModel.class);
                         dishModel.setId(dataSnapshot1.getKey());
+                        Location otherLocation=new Location("other");
+                        otherLocation.setLatitude(dishModel.getLat());
+                        otherLocation.setLongitude(dishModel.getLng());
+                        if(MainActivity.curlocation!=null){
+                            try{
+                                Location myLoc=new Location("myLocation");
+                                myLoc.setLatitude(MainActivity.curlocation.getLatitude());
+                                myLoc.setLongitude(MainActivity.curlocation.getLongitude());
+                                double meter= otherLocation.distanceTo(myLoc);
+                                dishModel.setDistance(meter);
+                            }catch (Exception c){
+                                c.printStackTrace();
+                            }
+
+                        }else{
+                            dishModel.setDistance(0.0);
+                        }
+
+
                         resturents.add(dishModel);
+                        Collections.sort(resturents, new Comparator<UserModel>()
+                        {
+                            @Override
+                            public int compare(UserModel lhs, UserModel rhs) {
+
+                                if(lhs.getDistance()!=0.0)
+                                    return Double.valueOf(lhs.getDistance()).compareTo(rhs.getDistance());
+                                else{
+                                    return 0;
+                                }
+                            }
+                        });
+
                         myAdapter.notifyDataSetChanged();
                         progressDialog.dismiss();
                     }
@@ -104,6 +141,39 @@ public class HomeFragment extends Fragment {
         searchView.setQueryHint("Search Here");
 
         return v;
+    }
+
+    public int getListsize(){
+        return  resturents.size();
+    }
+
+
+    public void updateData(Location location) throws Exception{
+        for(int i =0 ; i<resturents.size(); i++){
+            try{
+                Location myLoc=new Location("myLocation");
+                myLoc.setLatitude(resturents.get(i).getLat());
+                myLoc.setLongitude(resturents.get(i).getLng());
+                double meter= location.distanceTo(myLoc);
+                resturents.get(i).setDistance(meter);
+
+            }catch (Exception c){
+                c.printStackTrace();
+            }
+        }
+        Collections.sort(resturents, new Comparator<UserModel>()
+        {
+            @Override
+            public int compare(UserModel lhs, UserModel rhs) {
+
+                if(lhs.getDistance()!=0.0)
+                    return Double.valueOf(lhs.getDistance()).compareTo(rhs.getDistance());
+                else{
+                    return 0;
+                }
+            }
+        });
+        myAdapter.notifyDataSetChanged();
     }
 
 

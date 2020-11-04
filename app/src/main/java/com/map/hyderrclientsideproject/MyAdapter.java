@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
@@ -64,7 +66,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 //        }
 
         holder.title.setText(data.get(position).getName());
-        holder.discriptioin.setText(data.get(position).getAddress());
+        double km = data.get(position).getDistance()/1000;
+        DecimalFormat precision = new DecimalFormat("0.00");
+// dblVariable is a number variable and not a String in this case
+        holder.discriptioin.setText(precision.format(km)+" KM Away");
+        Log.e(TAG,"disctance is "+km);
+//        holder.discriptioin.setText(String.format("%.2f",km+""));
         Glide.with(activity).load(data.get(position).getImageUrl())
                 .centerCrop()
                 .into(holder.imageView);
